@@ -44,7 +44,6 @@
             </div>
         </nav>
         <div class="container">
-            <div class="row">
             <div class="btn-group btn-breadcrumb">
                 <?php
                 echo $this->navigation('navigation')
@@ -53,18 +52,9 @@
                           ->setPartial('partial/breadcrumb.phtml');
                 ?>
             </div>
-                </div>
             
         <hr>  
-        <div class="row">
-		<h2>Breadcrumb Default</h2>
-        <div class="btn-group btn-breadcrumb">
-            <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
-            <a href="#" class="btn btn-default">Snippets</a>
-            <a href="#" class="btn btn-default">Breadcrumbs</a>
-            <a href="#" class="btn btn-default">Default</a>
-        </div>
-	</div>
+       
             
             <?php echo $this->content; ?>
             <hr>

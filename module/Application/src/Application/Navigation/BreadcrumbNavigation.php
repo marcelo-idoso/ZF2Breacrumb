@@ -27,10 +27,9 @@ class BreadcrumbNavigation extends DefaultNavigationFactory{
             $navigation[] = array (
                 'label' => 'Home',
                 'route' => 'home',
-                'class' => 'Home',
                 'pages' => array(
                     array(
-                        'label' => 'Usuario',
+                        'label' => 'Album',
                         'route' => 'album',
                         'pages' => array(
                             array(
@@ -38,20 +37,10 @@ class BreadcrumbNavigation extends DefaultNavigationFactory{
                                 'route' => 'album/add',
                                 'action' => 'add',
                             ),
-                            array(
-                                'label' => 'Edit',
-                                'route' => 'album/add',
-                                'action' => 'edit',
-                            ),
-                            array(
-                                'label' => 'Delete',
-                                'route' => 'album',
-                                'action' => 'delete',
-                            ),
                         ),
                     ),
-                     array(
-                        'label' => 'Administracção',
+                    array(
+                        'label' => 'Administração',
                         'route' => 'administracao',
                     )
                 ),
