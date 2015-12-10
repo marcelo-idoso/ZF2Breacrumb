@@ -5,12 +5,14 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * View
+ * EntityView
  *
  * @ORM\Table(name="view", indexes={@ORM\Index(name="fk_VIEW_Controller_idx", columns={"Controller_IDCONTROLLER"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Repository\RepositoryView")
+ * 
  */
-class View
+class EntityView
 {
     /**
      * @var integer
@@ -50,61 +52,83 @@ class View
     private $status;
 
     /**
-     * @var \Application\Entity\Controller
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Controller")
+     * @ORM\Column(name="VIEWPARENT", type="integer", nullable=false)
+     */
+    private $viewparent = '0';
+
+    /**
+     * @var \Application\EntityController
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityController")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Controller_IDCONTROLLER", referencedColumnName="IDCONTROLLER")
      * })
      */
     private $controllercontroller;
 
-    function getIdview() {
+    public function getIdview() {
         return $this->idview;
     }
 
-    function getNome() {
+    public function getNome() {
         return $this->nome;
     }
 
-    function getLabel() {
+    public function getLabel() {
         return $this->label;
     }
 
-    function getRoute() {
+    public function getRoute() {
         return $this->route;
     }
 
-    function getStatus() {
+    public function getStatus() {
         return $this->status;
     }
 
-    function getControllercontroller() {
+    public function getViewparent() {
+        return $this->viewparent;
+    }
+
+    public function getControllercontroller() {
         return $this->controllercontroller;
     }
 
-    function setIdview($idview) {
+    public function setIdview($idview) {
         $this->idview = $idview;
+        return $this;
     }
 
-    function setNome($nome) {
+    public function setNome($nome) {
         $this->nome = $nome;
+        return $this;
     }
 
-    function setLabel($label) {
+    public function setLabel($label) {
         $this->label = $label;
+        return $this;
     }
 
-    function setRoute($route) {
+    public function setRoute($route) {
         $this->route = $route;
+        return $this;
     }
 
-    function setStatus($status) {
+    public function setStatus($status) {
         $this->status = $status;
-        }
+        return $this;
+    }
 
-    function setControllercontroller(\Application\Entity\Controller $controllercontroller) {
+    public function setViewparent($viewparent) {
+        $this->viewparent = $viewparent;
+        return $this;
+    }
+
+    public function setControllercontroller(\Application\Entity\EntityModule $controllercontroller) {
         $this->controllercontroller = $controllercontroller;
+        return $this;
     }
 
 

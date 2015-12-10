@@ -40,7 +40,7 @@ class Module
         return array(
             'factories' => array(
                  'navigation' => 'Application\Navigation\BreadcrumbNavigationFactory'
-            )
+            ),
         );       
     }
 }

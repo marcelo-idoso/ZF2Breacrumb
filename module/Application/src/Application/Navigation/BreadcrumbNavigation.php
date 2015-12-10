@@ -24,28 +24,19 @@ class BreadcrumbNavigation extends DefaultNavigationFactory{
         $navigation = array();
 
         if (null === $this->pages) {
-            $navigation[] = array (
-                'label' => 'Home',
-                'route' => 'home',
-                'pages' => array(
-                    array(
-                        'label' => 'Album',
-                        'route' => 'album',
-                        'pages' => array(
-                            array(
-                                'label' => 'Add',
-                                'route' => 'album/add',
-                                'action' => 'add',
-                            ),
-                        ),
-                    ),
-                    array(
-                        'label' => 'Administração',
-                        'route' => 'administracao',
-                    )
-                ),
-            );
-
+            $nav = $serviceLocator->get('Doctrine\ORM\EntityManager')
+                                           ->getRepository('Application\Entity\EntityView')
+                                           ->listView();
+            foreach ($nav as $key => $row) {
+                $navigation[] = array(
+                    'label' => $row['label'] ,
+                    'route' => $row['route'] ,
+                );
+            }
+            echo "<pre>";
+                print_r($nav); // para visualizar como está o array
+            echo "</pre>";
+            die();
             $mvcEvent = $serviceLocator->get('Application')
                                        ->getMvcEvent();
 

@@ -16,26 +16,6 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $objectManager = $this->getServiceLocator()
-                              ->get('Doctrine\ORM\EntityManager');
-
-        $productRepository = $objectManager->getRepository('Application\Entity\Controller');
-        $user = $productRepository->findAll();
-        
-        foreach ($user as $product) {
-            if($product->getDefault() == 'S'){
-                $nav[] = array(
-                    'label' => $product->getLabel(),
-                    'route' => $product->getRoute(),
-                    'pages' => array($pages),
-                );
-            }
-          
-        }
-        echo "<pre>";
-        var_dump($nav);
-        echo "</pre>";
-        die; // yes, I'm lazy
         return new ViewModel();
     }
     
