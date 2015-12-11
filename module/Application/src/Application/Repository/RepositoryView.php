@@ -29,13 +29,25 @@ class RepositoryView extends EntityRepository{
                     'label' => $product->getLabel() ,
                     'route' => $product->getRoute() ,
                     );
+                    // Adicionas as Pages
                     if ($product->getViewParent() != 0) {
                         $nav[$i] = $nav[$i] + array('pages' => $this->listView($product->getIdView()));
+                         // Remove Array 
+                        if($nav[$i]['pages'] == NULL){
+                              unset($nav[$i]['pages']);
+                        }
+                       
                     }else{
                         $nav[$i] = $nav[$i] + array('pages' => $this->listView($product->getIdView()));
+                         // Remove Array 
+                        if($nav[$i]['pages'] == NULL){
+                              unset($nav[$i]['pages']);
+                        }
                     }
+                   
                 $i++;
             }
+           
             return $nav;
         }
 
