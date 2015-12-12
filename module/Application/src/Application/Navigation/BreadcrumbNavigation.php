@@ -27,9 +27,7 @@ class BreadcrumbNavigation extends DefaultNavigationFactory{
             $navigation = $serviceLocator->get('Doctrine\ORM\EntityManager')
                                            ->getRepository('Application\Entity\EntityView')
                                            ->listView();
-            echo "<pre>";
-                print_r($navigation); // para visualizar como está o array
-            echo "</pre>";
+            
             $mvcEvent = $serviceLocator->get('Application')
                                        ->getMvcEvent();
 

@@ -31,6 +31,22 @@ return array(
                         'action'     => 'album',
                     ),
                 ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    // Segment route for viewing one blog post
+                    'add' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/add',
+                            'constraints' => array(
+                                'slug' => '[a-zA-Z0-9_-]+',
+                            ),
+                            'defaults' => array(
+                                'action' => 'add',
+                            ),
+                        ),  
+                    ),
+                ),
             ),
             'administracao' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
@@ -42,26 +58,8 @@ return array(
                     ),
                 ),
             ),
-            'album/add' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/album/add',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'add',
-                    ),
-                ),
-            ),
-            'album/add/teste' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/album/add/teste',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'add',
-                    ),
-                ),
-            ),
+
+
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them

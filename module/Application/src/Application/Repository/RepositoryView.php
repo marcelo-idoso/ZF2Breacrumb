@@ -26,8 +26,9 @@ class RepositoryView extends EntityRepository{
         if (!empty($listView)) {
             foreach ($listView as $product) {
                 $nav[$i] = array(
-                    'label' => $product->getLabel() ,
-                    'route' => $product->getRoute() ,
+                    'label'             => $product->getLabel() ,
+                    'route'             => $product->getRoute() ,
+                    'use_route_match'   => TRUE,
                     );
                     // Adicionas as Pages
                     if ($product->getViewParent() != 0) {
