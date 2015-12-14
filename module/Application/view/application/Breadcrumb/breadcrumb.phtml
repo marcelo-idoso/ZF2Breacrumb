@@ -1,0 +1,27 @@
+<table class="table table-bordered  table-condensed table-striped">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Label</td>
+            <td>Route</td>
+            <td>IdParent</td>
+            <td>Ação</td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if ($this->data): ?>
+            <?php foreach ($this->data as $entity):?>
+                <tr>
+                    <td><?php echo $entity->getIdView()?></td>
+                    <td><?php echo $entity->getNome()?></td>
+                    <td><?php echo $entity->getLabel()?></td>
+                    <td><?php echo $entity->getRoute()?></td>    
+                    <td><?php echo $entity->getViewParent()?></td> 
+                </tr>
+            <?php endforeach;?>
+        <?php endif;?>        
+        
+    </tbody>
+</table>
+<div>

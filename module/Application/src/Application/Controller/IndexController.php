@@ -18,23 +18,7 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel();
     }
-    
-    
-    public function albumAction()
-    {
-        return new ViewModel();
-    }
-    
-    public function addAction()
-    {
-        return new ViewModel();
-    }
-    
-    public function testeAction()
-    {
-        return new ViewModel();
-    }
-    
+
     public function administracaoAction()
     {
         return new ViewModel();

@@ -22,32 +22,6 @@ return array(
                     ),
                 ),
             ),
-            'album' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/album',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'album',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    // Segment route for viewing one blog post
-                    'add' => array(
-                        'type' => 'segment',
-                        'options' => array(
-                            'route' => '/add',
-                            'constraints' => array(
-                                'slug' => '[a-zA-Z0-9_-]+',
-                            ),
-                            'defaults' => array(
-                                'action' => 'add',
-                            ),
-                        ),  
-                    ),
-                ),
-            ),
             'administracao' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -55,6 +29,40 @@ return array(
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'     => 'administracao',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    // Segment route for viewing one blog post
+                    'breadcrumb' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/breadcrumb',
+                            'constraints' => array(
+                                'slug' => '[a-zA-Z0-9_-]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Application\Controller\Breadcrumb',
+                                'action'     => 'breadcrumb',
+                            ),
+                        ), 
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            // Segment route for viewing one blog post
+                            'add' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/add',
+                                    'constraints' => array(
+                                        'slug' => '[a-zA-Z0-9_-]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Application\Controller\Breadcrumb',
+                                        'action'     => 'addbreadcrumb',
+                                    ),
+                                ),  
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -115,7 +123,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => Controller\IndexController::class
+            'Application\Controller\Index' => Controller\IndexController::class,
+            'Application\Controller\Breadcrumb' => Controller\BreadcrumbController::class
         ),
     ),
     'view_manager' => array(

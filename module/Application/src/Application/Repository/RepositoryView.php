@@ -28,7 +28,7 @@ class RepositoryView extends EntityRepository{
                 $nav[$i] = array(
                     'label'             => $product->getLabel() ,
                     'route'             => $product->getRoute() ,
-                    'use_route_match'   => TRUE,
+                    'icon'              => $product->getNome(),
                     );
                     // Adicionas as Pages
                     if ($product->getViewParent() != 0) {
@@ -54,6 +54,12 @@ class RepositoryView extends EntityRepository{
 
     }
     
+    
+    public function AllView(){
+        $alllist = $this->findAll();
+        
+        return $alllist;
+    }
 }
 //$navigation = $serviceLocator()->get('Doctrine\ORM\EntityManager')->getRepository('Application\Entity\EntityView')->listView();
             
