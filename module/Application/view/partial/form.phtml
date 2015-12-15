@@ -1,0 +1,14 @@
+
+<?php $errors = $this->formElementErrors()->render($element, array('class' => 'text-error')); ?>
+<div class="form-group">
+    <?php if ($element->getLabel()) : ?>
+        <label for="exampleInputEmail1"><?php echo $this->formLabel($element) ?></label>
+    <?php endif; ?>
+    <?php echo $this->formElement($element); ?>
+    
+    <?php if ($errors): ?>
+      <small><?php echo $errors ?></small>
+    <?php endif; ?>
+    
+</div>
+    

@@ -1,0 +1,13 @@
+<?php
+$form->prepare();
+echo $this->form()->openTag($form);
+?>
+  <table>
+    <?php
+    $rowPartial = 'partial/form.phtml';
+    echo $this->formCollection()
+              ->setElementHelper($this->formRow()->setPartial($rowPartial))
+              ->render($form);
+    ?>
+  </table>
+<?php echo $this->form()->closeTag(); ?>

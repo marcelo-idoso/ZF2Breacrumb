@@ -1,3 +1,9 @@
+<style>
+    .breadcrumb > li + li:before {
+     content: "\00BB";
+     color: #aaa;
+}
+</style>
 <ul class="breadcrumb">
     <?php
     // iterate through the pages
@@ -14,7 +20,7 @@
             // otherwise, just output the name
             else:
             ?>
-                <?php echo $page->getLabel(); ?>
+            <span  class="<?php echo $page->get("icon") ;?>"><?php echo $page->getLabel(); ?></span>
             <?php endif; ?>
         </li>
     <?php endforeach; ?>

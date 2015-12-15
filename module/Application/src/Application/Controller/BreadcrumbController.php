@@ -29,7 +29,9 @@ class BreadcrumbController  extends AbstractActionController {
     }
     
     public function addbreadcrumbAction() {
-        return new ViewModel();
+        
+        $form = new \Application\Form\FromBreadcrumb();
+        return new ViewModel(array('form' => $form));
     }
 }
 
